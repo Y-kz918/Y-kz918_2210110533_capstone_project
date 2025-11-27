@@ -1,71 +1,35 @@
-Template for creating and submitting MAT496 capstone project.
-
-# Overview of MAT496
-
-In this course, we have primarily learned Langgraph. This is helpful tool to build apps which can process unstructured `text`, find information we are looking for, and present the format we choose. Some specific topics we have covered are:
-
-- Prompting
-- Structured Output 
-- Semantic Search
-- Retreaval Augmented Generation (RAG)
-- Tool calling LLMs & MCP
-- Langgraph: State, Nodes, Graph
-
-We also learned that Langsmith is a nice tool for debugging Langgraph codes.
-
-------
-
-# Capstone Project objective
-
-The first purpose of the capstone project is to give a chance to revise all the major above listed topics. The second purpose of the capstone is to show your creativity. Think about all the problems which you can not have solved earlier, but are not possible to solve with the concepts learned in this course. For example, We can use LLM to analyse all kinds of news: sports news, financial news, political news. Another example, we can use LLMs to build a legal assistant. Pretty much anything which requires lots of reading, can be outsourced to LLMs. Let your imagination run free.
-
-
--------------------------
-
-# Project report Template
-
-## Title: [your title goes here]
+## Title: Trip PLanner using Langgraph
 
 ## Overview
 
-[your overview goes here. My project does this that  etc]
+For this project, I built a structured travel assistant that helps users plan a trip in stages. Instead of generating a generic itinerary all at once, this application finds flight options first, pauses to let the user choose and then plans activities based on that specific flight.
+It uses the LangGraph framework to split the logic into two separate "sub-teams" (one for flights, one for activities) and manages the data flow between them using a shared state.
 
 ## Reason for picking up this project
 
-Expain how this project is aligned with this course content.
+I chose this project to apply the concepts from Modules 1–4, specifically focusing on architecture and control.
+
+Through this project, I practiced:
+**Sub-graphs** (Module 4): Learning how to isolate logic by building smaller graphs (`flight_graph` and `activity_graph`) and using them inside a larger parent graph.
+
+**Data Flow** (Module 2): Understanding how to pass data from a global "Parent State" to a local "Child State" and back again.
+
+**Human-in-the-Loop** (Module 3): This was my main learning goal. I wanted to implement a real "breakpoint" where the code stops and waits for human input, rather than just running automatically from start to finish.
 
 ## Plan
 
 I plan to excecute these steps to complete my project.
 
-- [TODO] Step 1 involves blah blah
-- [TODO] Step 2 involves blah blah
-- [TODO] Step 3 involves blah blah
-- ...
-- [TODO] Step n involves blah blah
+- [TODO] Step 1: Set up the environment and initialize the `ChatGroq` model (Llama 3.1) to ensure fast, open-source inference.
+- [TODO] Step 2: Define the State Schemas. I will create a main `TripState` for the overall plan, and separate `FlightState` and `ActivityState` for the specific sub-tasks.
+- [TODO] Step 3: Build and compile the Flight Scout Sub-graph. This involves creating the specific nodes to simulate searching for flights and processing the results into a clean list.
+- [TODO] Step 4: Build and compile the Activity Planner Sub-graph. This involves creating logic that generates an itinerary specifically based on the arrival time of the selected flight.
+- [TODO] Step 5: Construct the Parent Graph. I will create wrapper nodes that handle the input/output mapping to connect the global state to the sub-graphs.
+- [TODO] Step 6: Compile the final graph with Memory and Interrupts. I will configure the graph to explicitly pause (`interrupt_before`) right before the activity planning step.
+- [TODO] Step 7: Implement the execution and interactive loop. I will run the graph, catch the pause, ask the user to select a flight via `input()`, and use `graph.update_state()` to save their choice before resuming.
 
 ## Conclusion:
 
-I had planned to achieve {this this}. I think I have/have-not achieved the conclusion satisfactorily. The reason for your satisfaction/unsatisfaction.
+I had planned to achieve a workflow where the AI and the user work together, I think I have achieved the conclusion satisfactorily.
 
-----------
-
-# Added instructions:
-
-- This is a `solo assignment`. Each of you will work alone. You are free to talk, discuss with chatgpt, but you are responsible for what you submit. Some students may be called for viva. You should be able to each and every line of work submitted by you.
-
-- `commit` History maintenance.
-  - Fork this respository and build on top of that.
-  - For every step in your plan, there has to be a commit.
-  - Change [TODO] to [DONE] in the plan, before you commit after that step. 
-  - The commit history should show decent amount of work spread into minimum two dates. 
-  - **All the commits done in one day will be rejected**. Even if you are capable of doing the whole thing in one day, refine it in two days.  
- 
- - Deadline: Nov 30, Sunday 11:59 pm
-
-
-# Grading: total 25 marks
-
-- Coverage of most of topics in this class: 20
-- Creativity: 5
-  
+The project works as intended. The agent successfully hands off tasks to the sub-graphs, and the interrupt mechanism functions correctly. When I tested it, I was able to manually select "Flight C," and the Activity Planner correctly recognized the new arrival time and adjusted the plan accordingly. This confirmed that I successfully implemented the idea.
