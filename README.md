@@ -23,9 +23,9 @@ I plan to excecute these steps to complete my project.
 - [DONE] Step 1: Set up the environment and initialize the `ChatGroq` model (Llama 3.1) to ensure fast, open-source inference.
 - [DONE] Step 2: Define the State Schemas. I will create a main `TripState` for the overall plan, and separate `FlightState` and `ActivityState` for the specific sub-tasks.
 - [DONE] Step 3: Build and compile the Flight Scout Sub-graph. This involves creating the specific nodes to simulate searching for flights and processing the results into a clean list.
-- [TODO] Step 4: Build and compile the Activity Planner Sub-graph. This involves creating logic that generates an itinerary specifically based on the arrival time of the selected flight.
-- [TODO] Step 5: Construct the Parent Graph. I will create wrapper nodes that handle the input/output mapping to connect the global state to the sub-graphs.
-- [TODO] Step 6: Compile the final graph with Memory and Interrupts. I will configure the graph to explicitly pause (`interrupt_before`) right before the activity planning step.
+- [DONE] Step 4: Build and compile the Activity Planner Sub-graph. This involves creating logic that generates an itinerary specifically based on the arrival time of the selected flight.
+- [DONE] Step 5: Construct the Parent Graph. I will create wrapper nodes that handle the input/output mapping to connect the global state to the sub-graphs.
+- [PARTIALLY_DONE] Step 6: Compile the final graph with Memory and Interrupts. I will configure the graph to explicitly pause (`interrupt_before`) right before the activity planning step.
 - [TODO] Step 7: Implement the execution and interactive loop. I will run the graph, catch the pause, ask the user to select a flight via `input()`, and use `graph.update_state()` to save their choice before resuming.
 
 ## Conclusion:
