@@ -25,11 +25,12 @@ I plan to excecute these steps to complete my project.
 - [DONE] Step 3: Build and compile the Flight Scout Sub-graph. This involves creating the specific nodes to simulate searching for flights and processing the results into a clean list.
 - [DONE] Step 4: Build and compile the Activity Planner Sub-graph. This involves creating logic that generates an itinerary specifically based on the arrival time of the selected flight.
 - [DONE] Step 5: Construct the Parent Graph. I will create wrapper nodes that handle the input/output mapping to connect the global state to the sub-graphs.
-- [PARTIALLY_DONE] Step 6: Compile the final graph with Memory and Interrupts. I will configure the graph to explicitly pause (`interrupt_before`) right before the activity planning step.
-- [TODO] Step 7: Implement the execution and interactive loop. I will run the graph, catch the pause, ask the user to select a flight via `input()`, and use `graph.update_state()` to save their choice before resuming.
+- [DONE] Step 6: Compile the final graph with Memory and Interrupts. I will configure the graph to explicitly pause (`interrupt_before`) right before the activity planning step.
+- [DONE] Step 7: Implement the execution and interactive loop. I will run the graph, catch the pause, ask the user to select a flight via `input()`, and use `graph.update_state()` to save their choice before resuming.
+- [DONE] Step 8: I observed and validated the working and execution of all states in the Graph in LangSmith Traces.
 
 ## Conclusion:
 
 I had planned to achieve a workflow where the AI and the user work together, I think I have achieved the conclusion satisfactorily.
 
-The project works as intended. The agent successfully hands off tasks to the sub-graphs, and the interrupt mechanism functions correctly. When I tested it, I was able to manually select "Flight C," and the Activity Planner correctly recognized the new arrival time and adjusted the plan accordingly. This confirmed that I successfully implemented the idea.
+The project works as intended. The agent successfully hands off tasks to the sub-graphs, and the interrupt mechanism functions correctly. When I tested it, I was able to manually select "Flight C," and the Activity Planner correctly recognized the new arrival time and adjusted the plan accordingly. I even observed the dataflow on LangSmith Traces. This confirmed that I successfully implemented the idea.
