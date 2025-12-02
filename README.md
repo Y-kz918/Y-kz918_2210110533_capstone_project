@@ -34,3 +34,5 @@ I plan to excecute these steps to complete my project.
 I had planned to achieve a workflow where the AI and the user work together, I think I have achieved the conclusion satisfactorily.
 
 The project works as intended. The agent successfully hands off tasks to the sub-graphs, and the interrupt mechanism functions correctly. When I tested it, I was able to manually select "Flight C," and the Activity Planner correctly recognized the new arrival time and adjusted the plan accordingly. I even observed the dataflow on LangSmith Traces. This confirmed that I successfully implemented the idea.
+
+Here is the video explanation of the project: https://drive.google.com/file/d/1Vr4eLaaAGl4nA6Wjh73S_YnESvJnKz9X/view?usp=drivesdk
